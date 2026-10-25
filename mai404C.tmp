@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfqjgrwg7d6xk"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_upkux"]
+[ext_resource type="Texture2D" uid="uid://bau88186uxjya" path="res://assets/grass.png" id="2_7dj1f"]
+[ext_resource type="PackedScene" uid="uid://uxg0mgyvksvh" path="res://player.tscn" id="3_8my1k"]
+[ext_resource type="PackedScene" uid="uid://dumrxeige58vi" path="res://hud.tscn" id="4_uvmhc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_upkux")
+
+[node name="player" parent="." instance=ExtResource("3_8my1k")]
+position = Vector2(512, 266)
+
+[node name="HUD2" parent="." instance=ExtResource("4_uvmhc")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7dj1f")
+
+[connection signal="on_game_started" from="HUD2" to="." method="_on_hud_2_on_game_started"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

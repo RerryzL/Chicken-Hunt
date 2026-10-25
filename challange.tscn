@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwd0w4msioij8"]
+
+[ext_resource type="Script" path="res://challange.gd" id="1_cylid"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rqxne"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_igjny"]
+font_size = 100
+
+[node name="challange" type="CanvasLayer"]
+script = ExtResource("1_cylid")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "PRESS THE BUTTON"
+label_settings = SubResource("LabelSettings_rqxne")
+
+[node name="number" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "number
+"
+label_settings = SubResource("LabelSettings_igjny")
+
+[node name="press" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "START
+"
+
+[connection signal="pressed" from="MarginContainer/press" to="." method="_on_press_pressed"]

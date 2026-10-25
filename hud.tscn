@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dumrxeige58vi"]
+
+[ext_resource type="Script" path="res://script/hud.gd" id="1_ltxhd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoma2"]
+font_size = 30
+font_color = Color(1, 1, 0.0666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8r4x"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_hf2tw"]
+font_size = 100
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ltxhd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="coinLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Coin: 0"
+label_settings = SubResource("LabelSettings_eoma2")
+
+[node name="timerLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Timer: 10
+"
+label_settings = SubResource("LabelSettings_t8r4x")
+
+[node name="startButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "START
+"
+
+[node name="gameLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CHICKEN HUNT"
+label_settings = SubResource("LabelSettings_hf2tw")
+
+[connection signal="pressed" from="MarginContainer/startButton" to="." method="_on_start_button_pressed"]

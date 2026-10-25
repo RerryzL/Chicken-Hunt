@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bld3se1j3juxe"]
+
+[ext_resource type="Texture2D" uid="uid://wknr2175hjjx" path="res://Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Sprite-sheet-campfire.png" id="1_2swph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gifof"]
+atlas = ExtResource("1_2swph")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmdkm"]
+atlas = ExtResource("1_2swph")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idom3"]
+atlas = ExtResource("1_2swph")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rwrn"]
+atlas = ExtResource("1_2swph")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2kij"]
+atlas = ExtResource("1_2swph")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70h4w"]
+atlas = ExtResource("1_2swph")
+region = Rect2(3200, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0bu"]
+atlas = ExtResource("1_2swph")
+region = Rect2(3840, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahl7m"]
+atlas = ExtResource("1_2swph")
+region = Rect2(4480, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55s2d"]
+atlas = ExtResource("1_2swph")
+region = Rect2(5120, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdhx0"]
+atlas = ExtResource("1_2swph")
+region = Rect2(5760, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02a6k"]
+atlas = ExtResource("1_2swph")
+region = Rect2(6400, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agcj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gifof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmdkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idom3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rwrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2kij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70h4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahl7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55s2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdhx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02a6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgqpw"]
+size = Vector2(60, 55)
+
+[node name="campfire" type="Area2D" groups=["fireGroup"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -7)
+scale = Vector2(0.4, 0.338)
+sprite_frames = SubResource("SpriteFrames_agcj6")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 11)
+shape = SubResource("RectangleShape2D_xgqpw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
